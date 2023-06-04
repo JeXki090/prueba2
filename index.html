@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Red Social de Videos</title>
+</head>
+<body>
+  <h1>Bienvenido a la Red Social de Videos</h1>
+  
+  <form>
+    <input type="file" id="videoInput" accept="video/*" required>
+    <button type="button" onclick="subirVideo()">Subir Video</button>
+  </form>
+  
+  <h2>Videos recientes:</h2>
+  
+  <div id="videos">
+    <!-- Aquí se mostrarán los videos recientes -->
+  </div>
+  
+  <script>
+    function subirVideo() {
+      var fileInput = document.getElementById('videoInput');
+      var file = fileInput.files[0];
+      
+      if (file) {
+        var videoURL = URL.createObjectURL(file);
+        var videoElement = document.createElement('video');
+        videoElement.src = videoURL;
+        videoElement.controls = true;
+        
+        var videosDiv = document.getElementById('videos');
+        videosDiv.appendChild(videoElement);
+      }
+    }
+  </script>
+</body>
+</html>
